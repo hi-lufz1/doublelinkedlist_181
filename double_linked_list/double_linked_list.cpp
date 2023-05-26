@@ -119,11 +119,39 @@ void DoubleLinkedlist::traverse() {
 			cout << currentNode->noMhs << " " << currentNode->name << endl;
 			currentNode = currentNode->next;
 
-
 		}
-
      }
 }
+
+void DoubleLinkedlist::revtraverse() {
+	if (listEmpty()) {
+		cout << "\nList is empty" << endl;
+	}
+	else {
+		cout << "\nRecords in descending order of roll number are:" << endl;
+		node* currentNode = START;
+		while (currentNode->next != NULL)
+			currentNode = currentNode->next;
+
+		while (currentNode != NULL) {
+			cout << currentNode->noMhs << " " << currentNode->prev << endl;
+			currentNode = currentNode->prev;
+		}
+	}
+}
+void DoubleLinkedlist::hapus() {
+	if (listEmpty()) {
+		cout << "\nList is empty" << endl;
+
+	}
+	cout << "\nEnter the roll number of the student whose record is to be deleted: ";
+	int rollNo;
+	cin >> rollNo;
+	cout << endl;
+	if (DoubleLinkedlist::deleteNode(rollNo) == false)
+		cout << "Record wnot found" << endl;
+	else
+
 
 	
 
